@@ -101,6 +101,8 @@ const CloseButton = document.querySelector("#disconnectCall");
 
 CloseButton.addEventListener("click",(e)=>{
   socket.emit("message", `${user} Left`);
+  videoGrid.remove(myVideoStream.getVideoTracks()[0]);
+  // myVideoStream.getVideoTracks()[0].enabled = false;
   window.location.replace("https://animeshvideochat.herokuapp.com");
 })
 

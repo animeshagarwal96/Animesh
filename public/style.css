@@ -4,6 +4,7 @@
   --main-darklg: #1d2635;
   --main-dark: #161d29;
   --primary-color: #2f80ec;
+  --danger-color: #d1102a;
   --main-light: #eeeeee;
   font-family: "Poppins", sans-serif;
 }
@@ -85,6 +86,18 @@ video {
   width: 50px;
   margin: 0 0.5rem;
 }
+.options__button_disconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--danger-color);
+  height: 50px;
+  border-radius: 5px;
+  color: var(--main-light);
+  font-size: 1.2rem;
+  width: 50px;
+  margin: 0 0.5rem;
+}
 
 .background__red {
   background-color: #f6484a;
@@ -97,12 +110,12 @@ video {
   background-color: #242f41;
 }
 
-.main__chat_window {
+#main__chat_window {
   flex-grow: 1;
   overflow-y: scroll;
 }
 
-.main__chat_window::-webkit-scrollbar {
+#main__chat_window::-webkit-scrollbar {
   display: none;
 }
 

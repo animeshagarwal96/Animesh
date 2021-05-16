@@ -60,6 +60,7 @@ const connectToNewUser = (userId, stream) => {
 
 peer.on("open", (id) => {
   socket.emit("join-room", ROOM_ID, id, user);
+  socket.emit("message",`${user} joined`)
 });
 
 const addVideoStream = (video, stream) => {
@@ -73,12 +74,16 @@ const addVideoStream = (video, stream) => {
 let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");
 let messages = document.querySelector(".messages");
+function scrollDown() {
+  document.getElementById('main__chat_window').scrollTop =  document.getElementById('main__chat_window').scrollHeight
+ }
 
 send.addEventListener("click", (e) => {
   if (text.value.length !== 0) {
     socket.emit("message", text.value);
     text.value = "";
   }
+  scrollDown();
 });
 
 text.addEventListener("keydown", (e) => {
@@ -86,11 +91,19 @@ text.addEventListener("keydown", (e) => {
     socket.emit("message", text.value);
     text.value = "";
   }
+  scrollDown();
 });
 
 const inviteButton = document.querySelector("#inviteButton");
 const muteButton = document.querySelector("#muteButton");
 const stopVideo = document.querySelector("#stopVideo");
+const CloseButton = document.querySelector("#disconnectCall");
+
+CloseButton.addEventListener("click",(e)=>{
+  socket.emit("message", `${user} Left`);
+  window.location.replace("https://animeshvideochat.herokuapp.com");
+})
+
 muteButton.addEventListener("click", () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {

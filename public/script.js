@@ -138,8 +138,8 @@ stopVideo.addEventListener("click", () => {
 
 inviteButton.addEventListener("click", (e) => {
   prompt(
-    "Copy this link and send it to people you want to meet with",
-    window.location.href
+    "Copy this Id and send it to paste it in the join section",
+    ROOM_ID
   );
 });
 

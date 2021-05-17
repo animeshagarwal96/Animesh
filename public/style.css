@@ -193,7 +193,7 @@ video {
     flex: 1;
   }
   @media all and (min-width: 576px) {
-    .video-grid {
+    #video-grid {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       margin-bottom: 1rem;
     }

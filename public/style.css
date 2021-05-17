@@ -192,10 +192,27 @@ video {
     width: 100%;
     flex: 1;
   }
+  @media all and (min-width: 576px) {
+    .video-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media all and (min-width: 992px) { 
+    .grid {
+      grid-template-areas:
+        'header header header'
+        'main main aside'
+        'footer footer footer';
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
 
   video {
     height: auto;
-    width: 100%;
+    width: 50%;
+    padding-bottom: 0.25rem;
   }
 
   #showChat {

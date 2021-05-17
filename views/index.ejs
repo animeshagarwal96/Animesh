@@ -100,9 +100,10 @@
             line-height: 60px;
         }
         .copy_id{
-                padding:8px;
-                border-radius: 5px;
-                width:200px;
+                padding:10px;
+                border-radius: 15px;
+                border:5px solid white;
+                width:250px;
             }
         @media screen and (max-width: 768px) {
             h1 {
@@ -152,7 +153,7 @@
                     <a href="#" id="join_id" class="button"><span class="btn-text">Join</span></a>
                 </div>
                 <div class="right">
-                    <input type="text" onchange="isIdEntered();" id="my_id" class="copy_id" placeholder="Enter Id">
+                    <input type="text" onchange="isIdEntered();" id="my_id" class="copy_id" placeholder="Paste Meeting Id here. . .">
                 </div>
             </div>
             <div class="row">
@@ -162,7 +163,7 @@
                     </a>
                 </div>
                 <div class="right">
-                    <span>Start a meeting</span>
+                    <span>Start a new meeting</span>
                 </div>
             </div>
             <div class="row">
@@ -177,7 +178,9 @@
 <script>
     function isIdEntered(){
         const Id = document.getElementById('my_id').value;
-        document.getElementById('join_id').href = `/${Id}`;
+        if(Id.length > 10){
+            document.getElementById('join_id').href = `/${Id}`;
+        }
     }
 </script>
 <script src="script.js"></script>

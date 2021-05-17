@@ -152,4 +152,5 @@ socket.on("createMessage", (message, userName) => {
         }</span> </b>
         <span>${message}</span>
     </div>`;
+    scrollDown();
 });
